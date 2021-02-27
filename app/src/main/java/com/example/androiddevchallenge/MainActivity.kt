@@ -39,8 +39,21 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp() {
+    val puppies = listOf(
+        Puppy("Basenji", R.drawable.basenji),
+        Puppy("Canaan", R.drawable.canaan),
+        Puppy("Carolina", R.drawable.carolina),
+        Puppy("Dingo", R.drawable.dingo),
+        Puppy("New Guinea singing dog", R.drawable.new_guinea_singing_dog),
+        Puppy("Peruvian Hairless", R.drawable.peruvian_hairless),
+        Puppy("Podenco Ibicenco", R.drawable.podenco_ibicenco),
+        Puppy("xoloitzcuintle", R.drawable.xoloitzcuintle),
+    )
+
     Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+        PuppyList(
+            puppies = puppies
+        )
     }
 }
 
