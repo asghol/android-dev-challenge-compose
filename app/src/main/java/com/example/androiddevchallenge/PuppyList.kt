@@ -11,13 +11,15 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 @Composable
 fun PuppyList(
     puppies: List<Puppy>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    puppySelected: ((Puppy) -> Unit)? = null,
 ) {
     Box(modifier) {
         Column(Modifier.fillMaxWidth()) {
             puppies.forEach { puppy ->
                 PuppyListItem(
                     puppy = puppy,
+                    puppySelected = puppySelected,
                     modifier = Modifier
                 )
             }
@@ -29,14 +31,14 @@ fun PuppyList(
 @Composable
 fun PuppyListLightPreview() {
     val puppies = listOf(
-        Puppy("Basenji", R.drawable.basenji),
-        Puppy("Canaan", R.drawable.canaan),
-        Puppy("Carolina", R.drawable.carolina),
-        Puppy("Dingo", R.drawable.dingo),
-        Puppy("New Guinea singing dog", R.drawable.new_guinea_singing_dog),
-        Puppy("Peruvian Hairless", R.drawable.peruvian_hairless),
-        Puppy("Podenco Ibicenco", R.drawable.podenco_ibicenco),
-        Puppy("xoloitzcuintle", R.drawable.xoloitzcuintle),
+        Puppy("Basenji", R.drawable.basenji, ""),
+        Puppy("Canaan", R.drawable.canaan, ""),
+        Puppy("Carolina", R.drawable.carolina, ""),
+        Puppy("Dingo", R.drawable.dingo, ""),
+        Puppy("New Guinea singing dog", R.drawable.new_guinea_singing_dog, ""),
+        Puppy("Peruvian Hairless", R.drawable.peruvian_hairless, ""),
+        Puppy("Podenco Ibicenco", R.drawable.podenco_ibicenco, ""),
+        Puppy("xoloitzcuintle", R.drawable.xoloitzcuintle, ""),
     )
 
     MyTheme {
